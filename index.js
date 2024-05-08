@@ -58,16 +58,18 @@ function deleteUnwantedData(array) {
 
 function deleteUnwantedData2(array) {
     var newarray = [];
-
+  
     array.forEach((item, index) => {
-        if (item.value != "N/A") {
-            item.value = Number(item.value);
-            newarray.push(item);
-        }
+      if (item.normalValue != "O/C") {
+        item.normalValue = item.normalValue.toString().replaceAll(":gem:", "");
+        item.normalValue = item.normalValue.toString().replaceAll(",", "");
+        item.normalValue = parseFloat(item.normalValue.toString());
+        newarray.push(item);
+      }
     });
-
+  
     return newarray;
-}
+  }
 
 function addItem(index) {
     var selectedsave = selected;
