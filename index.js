@@ -60,7 +60,7 @@ function deleteUnwantedData2(array) {
     var newarray = [];
   
     array.forEach((item, index) => {
-      if (item.normalValue != "O/C") {
+      if (item.normalValue != "O/C" && item.normalValue.toLowerCase != 'soon') {
         item.normalValue = item.normalValue.toString().replaceAll(":gem:", "");
         item.normalValue = item.normalValue.toString().replaceAll(",", "");
         item.normalValue = parseFloat(item.normalValue.toString());
